@@ -1,0 +1,64 @@
+============================= test session starts ==============================
+platform linux -- Python 3.7.0, pytest-3.4.2, py-1.5.2, pluggy-0.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/alex/uni/cs1531/labs/lab03, inifile:
+plugins: mock-1.7.1
+collecting ... collected 4 items
+
+test_guesser.py::test_handle PASSED                                      [ 25%]
+test_guesser.py::test_closest PASSED                                     [ 50%]
+test_guesser.py::test_guess_playing PASSED                               [ 75%]
+test_guesser.py::test_cheater FAILED                                     [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_cheater _________________________________
+
+guess = 0, values = [2, 8]
+
+    def handle_guess(guess, values):
+        # This function should return a duplicate list of values
+        # with the guessed value removed if it was present.
+        #copy = list(values)
+        try :
+>           index = values.index(guess);
+E           ValueError: 0 is not in list
+
+numberGuesser.py:21: ValueError
+
+During handling of the above exception, another exception occurred:
+
+mocker = <pytest_mock.MockFixture object at 0x7f9426910080>
+
+    def test_cheater(mocker):
+        cheater = Cheater()
+        mocker.patch('builtins.input', cheater.make_guess)
+        mocker.patch('sys.stdout', cheater)
+        values = sorted(random.sample(range(MIN, MAX+1), NUM_VALUES))
+        cheater.set_vals(values)
+>       run_game(values)
+
+test_guesser.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+numberGuesser.py:69: in run_game
+    values = handle_guess(guess, values)
+numberGuesser.py:26: in handle_guess
+    find_closest(guess, values)
+numberGuesser.py:41: in find_closest
+    print('higher')
+test_guesser.py:10: in write
+    self.change_guess(output)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <test_guesser.Cheater object at 0x7f94269100b8>, output = 'higher'
+
+    def change_guess(self, output):
+>       assert not (output.endswith('lower') or output.endswith('higher')), 'I guessed {} but it was not in {}'.format(str(self.guess), str(self.values))
+E       AssertionError: I guessed 0 but it was not in [0, 2, 8]
+E       assert not (False or True)
+E        +  where False = <built-in method endswith of str object at 0x7f9426d655e0>('lower')
+E        +    where <built-in method endswith of str object at 0x7f9426d655e0> = 'higher'.endswith
+E        +  and   True = <built-in method endswith of str object at 0x7f9426d655e0>('higher')
+E        +    where <built-in method endswith of str object at 0x7f9426d655e0> = 'higher'.endswith
+
+test_guesser.py:36: AssertionError
+====================== 1 failed, 3 passed in 0.03 seconds ======================

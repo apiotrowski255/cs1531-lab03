@@ -1,0 +1,6 @@
+[
+  "test_guesser.py::test_handle",
+  "test_guesser.py::test_closest",
+  "test_guesser.py::test_guess_playing",
+  "test_guesser.py::test_cheater"
+]
