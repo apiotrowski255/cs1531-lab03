@@ -1,0 +1,19 @@
+Use-case name:			Use case UC-1: Book car
+
+Description:			A user searches/browses from an index of cars and is able
+				          to get the cars information (availablitiy, size, etc). 
+				          From the cars the user is to book a car.
+
+Initiating Actor:		    User
+
+Actor's goal:			      To book the most convenient car			
+
+Participating actors:		Booking system, search criteria, payment system, external Insurance
+
+Flow of events:			
+	1. User enters criteria for searching cars
+	2. System returns list of cars matching the criteria
+	3. User selects car that best suits them.
+	4. User proceeds to book the car, enter information (name, address, etc).
+	5. User enters credit card information. confirms payment
+	6. System sends email to the user confirming the booking
