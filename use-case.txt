@@ -1,3 +1,14 @@
+
+Q1. 
+Actors
+User:			book the most suitable car
+Manager:		generate weekly reports
+Admin:			add new car information
+
+Q2. see use-case diagram.png
+
+Q3.
+
 Use-case name:			Use case UC-1: Book car
 
 Description:			A user searches/browses from an index of cars and is able
