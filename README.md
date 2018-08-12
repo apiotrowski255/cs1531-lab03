@@ -141,3 +141,12 @@ Similar to the last lab, you will use the `pytest` package to test your program.
 ```bash
 python3 -m pytest
 ```
+
+Results for saer:
+python extension is passing all tests except for test_cheater.
+
+
+
+
+
+
